@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>罗怡琼 - AI&金融</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-overlay.active {
+            display: flex;
+        }
+        .modal-content {
+            background-color: white;
+            border-radius: 12px;
+            max-width: 90%;
+            max-height: 90%;
+            overflow-y: auto;
+            position: relative;
+        }
+        .close-btn {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            cursor: pointer;
+            z-index: 10;
+        }
+        .project-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 12px;
+        }
+        .project-images img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="text-xl font-bold text-blue-600">罗怡琼</div>
+                <div class="flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-blue-600 transition-colors">首页</a>
+                    <a href="#projects" class="text-gray-700 hover:text-blue-600 transition-colors">项目</a>
+                    <a href="#about" class="text-gray-700 hover:text-blue-600 transition-colors">关于</a>
+                    <a href="#contact" class="text-gray-700 hover:text-blue-600 transition-colors">联系</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="py-20 bg-gradient-to-br from-blue-500 to-purple-600 text-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-8 mb-12">
+                <img src="images/photo.jpg" alt="头像" class="w-40 h-40 rounded-full border-4 border-white shadow-lg object-cover">
+                <div class="text-center md:text-left">
+                    <h1 class="text-4xl font-bold mb-2">罗怡琼</h1>
+                    <p class="text-xl opacity-90 mb-4">AI＆金融 | 机器学习</p>
+                    <div class="flex flex-wrap gap-2 justify-center md:justify-start">
+                        <span class="bg-white/20 px-3 py-1 rounded-full text-sm">LLM应用</span>
+                        <span class="bg-white/20 px-3 py-1 rounded-full text-sm">机器学习</span>
+                        <span class="bg-white/20 px-3 py-1 rounded-full text-sm">深度学习</span>
+                        <span class="bg-white/20 px-3 py-1 rounded-full text-sm">NLP</span>
+                        <span class="bg-white/20 px-3 py-1 rounded-full text-sm">金融工程</span>
+                        <span class="bg-white/20 px-3 py-1 rounded-full text-sm">金融科技</span>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-white/10 backdrop-blur rounded-xl p-6">
+                    <h3 class="text-lg font-semibold mb-4 flex items-center">
+                        <i class="fas fa-user mr-2"></i>基础信息
+                    </h3>
+                    <div class="space-y-2 text-sm">
+                        <p><span class="opacity-80">生日：</span>2001.01.05</p>
+                        <p><span class="opacity-80">电话：</span>15346732367</p>
+                        <p><span class="opacity-80">邮箱：</span>2656499877@qq.com</p>
+                    </div>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur rounded-xl p-6">
+                    <h3 class="text-lg font-semibold mb-4 flex items-center">
+                        <i class="fas fa-award mr-2"></i>技能证书
+                    </h3>
+                    <div class="space-y-2 text-sm">
+                        <p>英语 CET-4、CET-6、雅思</p>
+                        <p>计算机二级证书</p>
+                        <p>普通话二级证书</p>
+                        <p>证券从业资格证</p>
+                    </div>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur rounded-xl p-6">
+                    <h3 class="text-lg font-semibold mb-4 flex items-center">
+                        <i class="fas fa-trophy mr-2"></i>荣誉奖励
+                    </h3>
+                    <div class="space-y-2 text-sm">
+                        <p>湖北省"知链杯"金融科技应用赛二等奖</p>
+                        <p>"挑战杯"大学生创业竞赛省级二等奖</p>
+                        <p>"互联网+"大学生创新创业竞赛铜奖</p>
+                        <p>校优秀学生干部奖学金</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-gray-800">AI项目经验</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <img src="images/project1.jpg" alt="项目1" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">抖音AI创变者计划黑客松大赛</h3>
+                        <p class="text-gray-600 mb-4">重力陀螺仪反应竞技体感游戏项目Fire</p>
+                        <button class="project-btn bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors" data-project="1">查看详情</button>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <img src="images/p2.1.png" alt="项目2" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">科研项目 | LLM驱动的大样本文本分析</h3>
+                        <p class="text-gray-600 mb-4">利用大语言模型进行大批量科研报告文本的自动化分析</p>
+                        <button class="project-btn bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors" data-project="2">查看详情</button>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <img src="images/p3.jpg" alt="项目3" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-2">专业项目 | 机器学习在金融衍生品定价中的应用</h3>
+                        <p class="text-gray-600 mb-4">运用深度神经网络进行风险对冲策略研究</p>
+                        <button class="project-btn bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors" data-project="3">查看详情</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-gray-100">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">关于我</h2>
+            <div class="text-gray-600 text-lg leading-relaxed space-y-4">
+                <p>我是一名充满热情的金融科技研究生，本科就读华中师范大学金融工程专业，目前在宁波诺丁汉大学攻读金融科技专业硕士学位，专注于人工智能和机器学习交叉学科领域的研究与实践。</p>
+                <p><strong>AI技术能力：</strong></p>
+                <ul class="list-disc list-inside space-y-2">
+                    <li>Python数据分析与机器学习（Pandas、NumPy、NLTK、Scikit-learn）</li>
+                    <li>掌握PyTorch深度学习框架，能够实现复杂的神经网络模型</li>
+                    <li>有LLM（大语言模型）应用开发经验，熟悉Prompt工程和Few-shot学习</li>
+                    <li>掌握数据可视化技术（Matplotlib、Seaborn），能够有效展示分析结果</li>
+                </ul>
+                <p><strong>AI项目经验：</strong></p>
+                <ul class="list-disc list-inside space-y-2">
+                    <li>主导基于Cursor Agent的AI辅助开发工作流，实现智能网页设计</li>
+                    <li>参与LLM驱动的大样本文本分析项目，利用Prompt工程提升信息抽取准确率</li>
+                    <li>运用Trae、Canva、Gemini等AI工具优化项目Demo</li>
+                    <li>实现基于深度学习的金融衍生品定价模型，验证LSTM在时序预测中的优势</li>
+                </ul>
+                <p>我热衷于探索AI技术的前沿应用，致力于将人工智能技术应用于实际场景，通过交叉学科扩大其使用范围，创造更多价值。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8">联系我</h2>
+            <div class="space-y-4">
+                <p class="text-gray-600 text-lg">邮箱：<a href="mailto:2656499877@qq.com" class="text-blue-600 hover:underline">2656499877@qq.com</a></p>
+                <p class="text-gray-600 text-lg">微信：<span class="text-blue-600">xl15346732367</span></p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p>&copy; 2026 罗怡琼 | AI＆金融</p>
+
+        </div>
+    </footer>
+
+
+    <div id="modal1" class="modal-overlay">
+        <div class="modal-content p-8 max-w-4xl">
+            <div class="close-btn text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times text-2xl"></i>
+            </div>
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">抖音AI创变者计划黑客松大赛 | 重力陀螺仪反应竞技体感游戏项目Fire</h2>
+            <div class="project-images mb-6">
+                <img src="images/project1.jpg" alt="项目一图片1">
+            </div>
+            <div class="text-gray-600 space-y-2">
+                <p class="font-semibold">项目描述：</p>
+                <ul class="list-disc list-inside space-y-2">
+                    <li>主导 AI 辅助开发工作流，基于 Cursor Agent 进行网页设计，实现时间同步与陀螺仪精准判定</li>
+                    <li>运用Trae、canva、Gemini等作为AI辅助工具对项目demo进行完善</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal2" class="modal-overlay">
+        <div class="modal-content p-8 max-w-4xl">
+            <div class="close-btn text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times text-2xl"></i>
+            </div>
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">科研项目 | LLM驱动的大样本文本分析</h2>
+            <div class="project-images mb-6">
+                <img src="images/p2.1.png" alt="项目二图片1">
+                <img src="images/p2.2.png" alt="项目二图片2">
+                <img src="images/p2.3.png" alt="项目二图片3">
+                <img src="images/p2.4.png" alt="项目二图片4">
+            </div>
+            <div class="text-gray-600 space-y-2">
+                <p class="font-semibold">项目描述：</p>
+                <ul class="list-disc list-inside space-y-2">
+                    <li>参与利用大语言模型进行大批量科研报告文本的自动化分析</li>
+                    <li>设计针对性Prompt，调用API从非结构化文本中提取关键问题信息</li>
+                    <li>使用Pandas与Matplotlib对提取结果进行统计与可视化，输出数据报告</li>
+                    <li>通过Few-shot与输出格式约束提升抽取准确率，降低幻觉</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal3" class="modal-overlay">
+        <div class="modal-content p-8 max-w-4xl">
+            <div class="close-btn text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times text-2xl"></i>
+            </div>
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">专业项目 | 机器学习在金融衍生品定价中的应用</h2>
+            <div class="project-images mb-6">
+                <img src="images/p3.jpg" alt="项目三图片1">
+            </div>
+            <div class="text-gray-600 space-y-2">
+                <p class="font-semibold">项目描述：</p>
+                <ul class="list-disc list-inside space-y-2">
+                    <li>运用深度神经网络进行风险对冲策略研究，将AI技术从理论分析延伸至具体的交易场景，以优化决策效率</li>
+                    <li>使用Python（PyTorch）搭建多层感知机（MLP）和LSTM网络，以历史波动率、隐含波动率、合约到期时间等为特征，对期权价格进行回归预测，实现比Black-Scholes模型更低均方误差（MSE）的定价效果</li>
+                    <li>完成从数据清洗（日频期权数据）、特征工程（构造在值程度、到期时间等衍生指标）、模型训练（PyTorch，早停防止过拟合）到策略回测的全流程。实验表明，LSTM模型在捕捉波动率曲面时序依赖方面优于传统线性模型</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
